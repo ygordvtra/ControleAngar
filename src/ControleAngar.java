@@ -1,6 +1,13 @@
-import javax.swing.*;
-import java.io.*;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 public class ControleAngar {
 
@@ -141,7 +148,7 @@ public class ControleAngar {
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null,"Arquivo com corpos celestes N√O existe!");
+            JOptionPane.showMessageDialog(null,"Arquivo com aeronaves não existe!");
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -202,7 +209,7 @@ public class ControleAngar {
 
                 case 2: // Exibir dados
                     if (naves.size() == 0) {
-                        JOptionPane.showMessageDialog(null,"N„o h· corpos celestes em memÛria. Entre com corpos celestes primeiramente");
+                        JOptionPane.showMessageDialog(null,"Não há aeronaves em memória. Entre com aeronaves primeiramente");
                         break;
                     }
                     String dados = "";
@@ -214,7 +221,7 @@ public class ControleAngar {
 
                 case 3: // Limpar Dados
                     if (naves.size() == 0) {
-                        JOptionPane.showMessageDialog(null,"N„o h· corpos celestes em memÛria. Entre com corpos celestes primeiramente");
+                        JOptionPane.showMessageDialog(null,"Não há aeronaves em memória. Entre com aeronaves primeiramente");
                         break;
                     }
                     naves.clear();
@@ -223,7 +230,7 @@ public class ControleAngar {
 
                 case 4: // Grava Dados
                     if (naves.size() == 0) {
-                        JOptionPane.showMessageDialog(null,"N„o h· corpos celestes em memÛria. Entre com corpos celestes primeiramente");
+                        JOptionPane.showMessageDialog(null,"Não há aeronaves em memória. Entre com aeronaves primeiramente");
                         break;
                     }
                     salvaNaves(naves);
@@ -239,7 +246,7 @@ public class ControleAngar {
                     JOptionPane.showMessageDialog(null,"Dados RECUPERADOS com sucesso!");
                     break;
                 case 9:
-                    JOptionPane.showMessageDialog(null,"Fim do aplicativo CONTROLE ESPACIAL");
+                    JOptionPane.showMessageDialog(null,"Fim do aplicativo CONTROLE DE AERONAVES");
                     break;
             }
         } while (opc1 != 9);
@@ -250,7 +257,6 @@ public class ControleAngar {
         ControleAngar ca = new ControleAngar();
 
         ca.menuNaves();
-
 
     }
 
